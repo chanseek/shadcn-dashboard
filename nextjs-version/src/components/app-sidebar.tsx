@@ -15,6 +15,7 @@ import {
   CreditCard,
   LayoutTemplate,
   Users,
+  Sprout,
 } from "lucide-react"
 import Link from "next/link"
 import { Logo } from "@/components/logo"
@@ -51,6 +52,11 @@ const data = {
           title: "Dashboard 2",
           url: "/dashboard-2",
           icon: LayoutPanelLeft,
+        },
+        {
+          title: "JW Fresh",
+          url: "/production",
+          icon: Sprout,
         },
       ],
     },
