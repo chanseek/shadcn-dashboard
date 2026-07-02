@@ -40,6 +40,17 @@ export function CultivationStatus() {
         <p className="text-xs text-muted-foreground">살수온 / 품온 (24H)</p>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
+        <div className="flex justify-center gap-4">
+          <div className="flex items-center gap-1.5 text-xs">
+            <span className="size-2 rounded-full bg-blue-500" />
+            <span className="text-muted-foreground">살수온</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs">
+            <span className="size-2 rounded-full bg-green-500" />
+            <span className="text-muted-foreground">품온</span>
+          </div>
+        </div>
+
         <ChartContainer config={chartConfig} className="h-[220px] w-full">
           <LineChart data={[...cultivationChartData]} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" className="stroke-muted/30" />
@@ -80,7 +91,9 @@ export function CultivationStatus() {
               <span className="w-16 shrink-0 text-xs text-muted-foreground">{item.label}</span>
               <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
                 <div
-                  className="h-full rounded-full bg-emerald-500"
+                  className={`h-full rounded-full ${
+                    item.label === "중간성장" ? "bg-blue-500" : "bg-emerald-500"
+                  }`}
                   style={{ width: `${item.percent}%` }}
                 />
               </div>
